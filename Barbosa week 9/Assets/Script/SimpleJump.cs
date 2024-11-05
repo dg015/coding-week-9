@@ -40,5 +40,20 @@ public class SimpleJump : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        print("Started contatact with" + collision.gameObject.name);
+    }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        print("Still in contatact with" + collision.gameObject.name);
+
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        print("Ended contatact with" + collision.gameObject.name);
+
+    }
 }
