@@ -9,6 +9,8 @@ public class SimpleJump : MonoBehaviour
     [SerializeField] private ForceMode2D forcemode;
     [SerializeField] private float groundCheckDistance = 5f;
     [SerializeField] private LayerMask jumpLayerMask;
+
+    private bool isGrounded= false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,16 +24,19 @@ public class SimpleJump : MonoBehaviour
     void Update()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position,Vector2.down,groundCheckDistance,jumpLayerMask);
-        Debug.DrawRay(transform.position, Vector3.right * 1000, Color.red);
+        Debug.DrawRay(transform.position, Vector3.down * groundCheckDistance * 1000, Color.red);
 
-        if(hitInfo.collider !=null)
+        if(isGrounded = hitInfo.collider !=null)
         {
             print(hitInfo.collider.name);
             Debug.DrawLine(transform.position, hitInfo.point, Color.green);
+            isGrounded = true;
         }
-        if (Input.GetButtonDown("Jump"))
+
+        if (isGrounded && Input.GetButtonDown("Jump"))
         {
             body.AddForce(Vector2.up * jumpForce, forcemode);
+            isGrounded = false;
         }
     }
 
