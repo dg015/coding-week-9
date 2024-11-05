@@ -18,8 +18,9 @@ public class CannonballController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("target zone"))
         {
-            
             scoreboard.Score += 1;
+
+            Destroy(gameObject);
         }
     }
 

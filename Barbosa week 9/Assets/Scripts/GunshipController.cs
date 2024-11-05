@@ -44,7 +44,7 @@ public class GunshipController : MonoBehaviour
     {
         GameObject cannoballObject = Instantiate(cannonballPrefab, cannon.position, Quaternion.identity);
         Rigidbody2D canonball = cannoballObject.GetComponent<Rigidbody2D>();
-        canonball.AddForce(direction * cannonballForce, ForceMode2D.Force);
+        canonball.AddForce(direction.normalized * cannonballForce, ForceMode2D.Force);
 
     }
 
