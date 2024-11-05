@@ -28,7 +28,7 @@ public class SimpleJump : MonoBehaviour
 
         if(isGrounded = hitInfo.collider !=null)
         {
-            print(hitInfo.collider.name);
+            //print(hitInfo.collider.name);
             Debug.DrawLine(transform.position, hitInfo.point, Color.green);
             isGrounded = true;
         }
