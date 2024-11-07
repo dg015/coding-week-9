@@ -23,21 +23,22 @@ public class MovingPlataform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(whichPoint)
+        if(whichPoint == true)
         {
             transform.Translate((transform.position - pointB.position).normalized * Time.deltaTime * speed);
             if (Vector3.Distance(transform.position, pointA.position) < 0.1f) 
             {
-                
+                Debug.Log("reaching point A");
                 whichPoint = false;
             }
         }
-        else
+        else if (whichPoint == false)
         {
-           
+            Debug.Log("fell into false");
             transform.Translate((transform.position - pointA.position).normalized * Time.deltaTime * speed);
             if (Vector3.Distance(transform.position, pointB.position) < 0.1f) 
             {
+                Debug.Log("reaching point B");
                 whichPoint = true;
             }
         }
