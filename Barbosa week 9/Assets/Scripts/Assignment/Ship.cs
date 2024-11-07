@@ -16,7 +16,7 @@ public class Ship : MonoBehaviour
     void Update()
     {
         rb.GetContacts(contacts);
-        if (contacts.Count > 2)
+        if (contacts.Count >= 2)
         {
             Debug.Log("Ship is filled now");
         }
