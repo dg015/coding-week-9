@@ -32,7 +32,7 @@ public class MovingPlataform : MonoBehaviour
                 whichPoint = false;
             }
         }
-        else if (whichPoint == false)
+        else
         {
             Debug.Log("fell into false");
             transform.Translate((transform.position - pointA.position).normalized * Time.deltaTime * speed);
